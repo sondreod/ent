@@ -1,0 +1,14 @@
+[project]
+name = "ent"
+version = "0.9"
+requires-python = ">=3.8"
+description = "Simple command line tool for making quick notes"
+license = {file = "LICENSE.txt"}
+keywords = ["journaling", "log", "worklog"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
+
+[project.scripts]
+ent = "ent:main"
