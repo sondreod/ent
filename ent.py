@@ -77,8 +77,9 @@ def main():
     original_entry = fd.read()
     fd.close()
 
-    subprocess.call(["vim", "-c", "startinsert", fd.name])
-    # subprocess.call([os.environ.get("EDITOR", ["vim"]), fd.name])
+    if not input_data:
+        subprocess.call(["vim", "-c", "startinsert", fd.name])
+        # subprocess.call([os.environ.get("EDITOR", ["vim"]), fd.name])
 
     mefile = open(fd.name, "rb")
     newdata = mefile.read()
@@ -139,7 +140,7 @@ def segment_entries():
         yield message
 
 
-def journal(tags=None, short=False):
+def journal(tags=None):
     message = ""
     for message in segment_entries():
         if tags:
