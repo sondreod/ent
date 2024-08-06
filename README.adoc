@@ -1,0 +1,21 @@
+= ENT
+Command line tool for simple note taking / worklog.
+
+== Journal
+Your journal.ad file is stored at `~/.local/share/ent/journal.ad`
+
+== Usage
+
+`ent` Opens vim in insertmode with a loaded note template. Make your notes and save the file to make a new entry in the journal.
+
+`ent log` Shows timestamp, tags and the first line of all your journal entries.
+
+`ent list` Show all entries in your journal. 
+
+`ent last` Show the last 10 entries of your journal.
+
+`end find <tag_name>` Shows all entries taged with the given <tag_name>
+
+`ent cat` Simply prints the journal file as is. Same as `cat ~/.local/share/ent.journal.ad`
+
+`ent "<your journal entry>"` adds the given entry to your journal. Like like `git commit -m "<message>"`. Alltough unlikely, make sure your entry does'nt colide with any command (log, list, last, find or cat).
