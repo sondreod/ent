@@ -5,6 +5,7 @@ import argparse
 from pathlib import Path
 from datetime import datetime
 from typing import Tuple
+from sys import exit  # pyinstaller requires exit to be imported
 
 COMMANDS = ("list", "last", "find", "cat", "log")
 ABBR_MAP = {"ls": "list", "la": "last", "fn": "find"}
