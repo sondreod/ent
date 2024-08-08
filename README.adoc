@@ -1,12 +1,39 @@
 = ENT
-Command line tool for simple note taking / worklog.
+Linux command line tool for simple note taking / worklog.
 
 == Journal
 Your journal.ad file is stored at `~/.local/share/ent/journal.ad`
 
+== Install
+_Ent_ is made for _Linux_ (and maybe _MacOS_), however a _Windows_ version should not be difficult to make.
+
+No external dependecies, only packages from the standard library is used. `pyinstaller` is a dev-dependency if you want to make an executable.
+
+=== Binaries
+Binaries are available on the Github release page (https://github.com/sondreod/ent/releases)
+
+=== Pip
+`pip install "git+https://github.com/sondreod/ent"`
+
+or
+
+
+`pipx install "git+https://github.com/sondreod/ent"`
+
+=== Make your own binary with pyinstaller
+[source,python]
+----
+git clone git@github.com:sondreod/ent.git
+cd ent/
+pyinstaller --onefile ent.py
+----
+
+
 == Usage
 
 `ent` Opens vim in insertmode with a loaded note template. Make your notes and save the file to make a new entry in the journal.
+
+`ent #<tag>` (Not implemented yet) Same as `ent` but the tags: line is prefilled with the given tag(s). Multiple tags can be separated like this `ent #one_tag#another_tag` (no spaces).
 
 `ent log` Shows timestamp, tags and the first line of all your journal entries.
 
@@ -16,6 +43,6 @@ Your journal.ad file is stored at `~/.local/share/ent/journal.ad`
 
 `end find <tag_name>` Shows all entries taged with the given <tag_name>
 
-`ent cat` Simply prints the journal file as is. Same as `cat ~/.local/share/ent.journal.ad`
+`ent cat` Simply prints the journal file as is. Same as `cat ~/.local/share/ent.journal.ad` except this removes the unicode record separator at the start of every entry.
 
 `ent "<your journal entry>"` adds the given entry to your journal. Like `git commit -m "<message>"`. Alltough unlikely, make sure your entry does'nt colide with any command (log, list, last, find, cat or any of their aliases).
