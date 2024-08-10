@@ -31,7 +31,7 @@ pyinstaller --onefile ent.py
 
 == Usage
 
-`ent` Opens vim in insertmode with a loaded note template. Make your notes and save the file to make a new entry in the journal.
+`ent` Opens vim in insertmode with a loaded note template. Make your notes and save the file to make a new entry in the journal. AsciiDoc syntax highlighting should be working.
 
 `ent #<tag>` (Not implemented yet) Same as `ent` but the tags: line is prefilled with the given tag(s). Multiple tags can be separated like this `ent #one_tag#another_tag` (no spaces).
 
@@ -46,3 +46,6 @@ pyinstaller --onefile ent.py
 `ent cat` Simply prints the journal file as is. Same as `cat ~/.local/share/ent.journal.ad` except this removes the unicode record separator at the start of every entry.
 
 `ent "<your journal entry>"` adds the given entry to your journal. Like `git commit -m "<message>"`. Alltough unlikely, make sure your entry does'nt colide with any command (log, list, last, find, cat or any of their aliases).
+
+== Inspiration for making this tool
+- https://en.wikipedia.org/wiki/Git
