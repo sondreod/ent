@@ -96,7 +96,10 @@ def main():
         with open(JOURNAL_FILE, "a", encoding="utf-8") as fd:
             entry, metadata = parse_note_tempfile(note)
             add_note(entry, metadata)
-            print("✨ Entry created\n")
+            if num_tags := metadata["tags"]:
+                print(f"✨ Entry created with {num_tags}.\n")
+            else:
+                print("✨ Entry created.\n")
 
 
 def parse_note_tempfile(content: str) -> Tuple[str, dict]:
