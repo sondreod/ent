@@ -2,6 +2,7 @@ import os
 import tempfile
 import subprocess
 import argparse
+from os import environ
 from pathlib import Path
 from datetime import datetime
 from typing import Tuple
@@ -79,8 +80,21 @@ def main():
     fd.close()
 
     if not input_data:
-        subprocess.call(["vim", "-c", "startinsert", fd.name])
-        # subprocess.call([os.environ.get("EDITOR", ["vim"]), fd.name])
+        editor_paths = (
+            "/usr/bin/editor",
+            "/etc/alternatives/editor",
+        )
+        call = ["vim", "-c", "startinsert", fd.name]  # Default to vim
+        for p in editor_paths:  # Check default paths
+            if editor := Path(p).resolve():
+                if editor.is_file() and not editor.name.startswith("vim"):
+                    call = [editor, fd.name]
+                    break
+        else:
+            if editor := environ.get("EDITOR"):  # Check EDITOR environment var
+                call = [editor, fd.name]
+
+        subprocess.call(call)
 
     mefile = open(fd.name, "rb")
     newdata = mefile.read()
