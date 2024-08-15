@@ -32,6 +32,7 @@ def main():
         command = ABBR_MAP.get(args.command, args.command)
 
         if command == "log":
+            # TODO: add pager and flip direction, (latest entry at the top).
             for message in segment_entries():
                 timestamp = message.splitlines()[0][:19]
                 tags = message.splitlines()[0][19:].strip()

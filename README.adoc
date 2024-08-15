@@ -49,4 +49,5 @@ pyinstaller --onefile ent.py
 `ent "<your journal entry>"` adds the given entry to your journal. Like `git commit -m "<message>"`. Alltough unlikely, make sure your entry does'nt colide with any command (log, list, last, find, cat or any of their aliases).
 
 == Inspiration for making this tool
+- https://fev.al/posts/work-journal/
 - https://en.wikipedia.org/wiki/Git
