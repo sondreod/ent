@@ -7,7 +7,7 @@ Your journal.ad file is stored at `~/.local/share/ent/journal.ad`
 == Install
 _Ent_ is made for _Linux_ (and maybe _MacOS_), however a _Windows_ version should not be difficult to make.
 
-No external dependecies, only packages from the standard library is used. `pyinstaller` is a dev-dependency if you want to make an executable.
+No external dependencies, only packages from the standard library is used. `pyinstaller` is a dev-dependency if you want to make an executable.
 
 === Binaries
 Binaries are available on the Github release page (https://github.com/sondreod/ent/releases)
