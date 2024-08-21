@@ -28,6 +28,7 @@ def main():
     # parser.add_argument("infile", nargs="?", type=argparse.FileType("r"), default=sys.stdin)
     args = parser.parse_args()
     input_data = None
+    prefilled_tags = None
     if args.command:
         command = ABBR_MAP.get(args.command, args.command)
 
@@ -58,6 +59,10 @@ def main():
 
         else:
             input_data = args.command
+            print(input_data)
+            if input_data.strip().startswith("#"):
+                prefilled_tags = ",".join(x for x in input_data.strip().split("#") if x)
+                input_data = None
         if command in COMMANDS:
             exit(0)
 
@@ -66,7 +71,7 @@ def main():
         input_data or "",
         "",
         "--",
-        "tags: ",
+        f"tags: {prefilled_tags or ''}",
         f"created_at: {created_timestamp}",
         "",
         "// Write you entry above this comment,",

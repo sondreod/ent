@@ -32,9 +32,9 @@ pyinstaller --onefile ent.py
 
 == Usage
 
-`ent` Opens the default editorfootnote:[Target of /etc/bin/editor, /etc/alternatives/editor or $EDITOR in that order. If not found, vim is used. If vim is used it's automatically opened in insertmode]  with a loaded note template. Make your notes and save the file to make a new entry in the journal. AsciiDoc syntax highlighting should be working.
+`ent` Opens the default editorfootnote:[Target of `/etc/bin/editor`, `/etc/alternatives/editor` or `$EDITOR` in that order. If not found, vim is used. If vim is used it's automatically opened in insertmode]  with a loaded note template. Make your notes and save the file to make a new entry in the journal. AsciiDoc syntax highlighting should be working.
 
-`ent #<tag>` (Not implemented yet) Same as `ent` but the tags: line is prefilled with the given tag(s). Multiple tags can be separated like this `ent #one_tag#another_tag` (no spaces).
+`ent "\#<tag>"` Same as `ent` but the `tags:` line is prefilled with the given tag(s). Multiple tags can be separated like this `ent "#one_tag#another_tag"` (no spaces, quotation marks are required as `#` is interpreted as a comment in bash).
 
 `ent log` Shows timestamp, tags and the first line of all your journal entries.
 
